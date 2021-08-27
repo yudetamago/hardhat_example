@@ -8,7 +8,9 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "lint:sol": "solhint 'contracts/**/*.sol'"
+    "lint:sol": "solhint 'contracts/**/*.sol'",
+    "lint:js": "eslint --max-warnings=0 --ext .ts,.js .",
+    "format:js": "prettier --write '**/*.{js,ts}'"
   },
   "dependencies": {},
   "devDependencies": {
