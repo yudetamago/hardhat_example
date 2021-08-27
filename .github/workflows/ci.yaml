@@ -1,0 +1,30 @@
+name: ci
+
+env:
+  node_version: 14
+
+on: 'push'
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: use Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.node_version }}
+      - name: cache yarn
+        id: yarn_cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: yarn sintall
+        if: steps.yarn_cache.outputs.cache-hit != 'true'
+        run: yarn install
+      - name: test
+        run: yarn test
