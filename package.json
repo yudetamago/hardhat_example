@@ -10,7 +10,9 @@
     "test": "hardhat test",
     "lint:sol": "solhint 'contracts/**/*.sol'",
     "lint:js": "eslint --max-warnings=0 --ext .ts,.js .",
-    "format:js": "prettier --write '**/*.{js,ts}'"
+    "lint": "yarn lint:sol && yarn lint:js",
+    "format:js": "prettier --write '**/*.{js,ts}'",
+    "format": "yarn format:js"
   },
   "dependencies": {},
   "devDependencies": {
