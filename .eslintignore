@@ -1,4 +1,4 @@
 .eslintrc.js
 hardhat.config.ts
-typechain
 node_modules
+typechain/hardhat.d.ts

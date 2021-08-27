@@ -10,7 +10,7 @@ describe('MyToken', () => {
   let addr1: SignerWithAddress
 
   beforeEach(async () => {
-    [owner, addr1] = await ethers.getSigners()
+    ;[owner, addr1] = await ethers.getSigners()
     const factory = new MyTokenFactory(owner)
     myToken = await factory.deploy()
   })
